@@ -4,17 +4,17 @@ from ai.gemini_client import ask_gemini
 from ai.prompt_manager import load_prompt, fill_prompt
 
 
-def generate_roadmap(goal, skills, experience, duration_weeks):
+def generate_interview_questions(role, experience, difficulty, questions):
 
-    prompt = load_prompt("roadmap_prompt.txt")
+    prompt = load_prompt("interview_prompt.txt")
 
     prompt = fill_prompt(
         prompt,
         {
-            "goal": goal,
-            "skills": skills,
+            "role": role,
             "experience": experience,
-             "duration_weeks": duration_weeks
+            "difficulty": difficulty,
+            "questions": questions
         }
     )
 
