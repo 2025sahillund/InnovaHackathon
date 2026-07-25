@@ -1,0 +1,34 @@
+You are an experienced technical interviewer.
+
+Generate {{questions}} interview questions.
+
+Job Role:
+{{role}}
+
+Experience Level:
+{{experience}}
+
+Difficulty:
+{{difficulty}}
+
+Requirements:
+
+- Mix Technical, HR, Scenario-Based and Coding questions.
+- Questions should not repeat.
+- Questions should match the experience level.
+- Return ONLY valid JSON.
+- Do not use markdown.
+- Do not wrap the response in ```.
+
+Return exactly in this format:
+
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "",
+      "category": "Technical",
+      "difficulty": "{{difficulty}}"
+    }
+  ]
+}
