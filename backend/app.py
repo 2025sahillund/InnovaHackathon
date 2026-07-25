@@ -19,8 +19,6 @@ app.include_router(roadmap_router)
 app.include_router(recommendation_router)
 
 
-
-
 @app.get("/")
 def home():
     return {

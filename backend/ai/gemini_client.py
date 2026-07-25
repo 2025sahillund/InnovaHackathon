@@ -1,23 +1,27 @@
 import os
-
 from dotenv import load_dotenv
-from google import genai
+from groq import Groq
 
 load_dotenv()
 
-client = genai.Client(
-    api_key=os.getenv("GEMINI_API_KEY")
+client = Groq(
+    api_key=os.getenv("GROQ_API_KEY")
 )
 
-
 def ask_gemini(prompt):
-
-    response = client.models.generate_content(
-        model="gemini-3.5-flash",
-        contents=prompt
+    response = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ],
+        temperature=0.7,
+        max_tokens=4096,
     )
 
-    text = response.text.strip()
+    text = response.choices[0].message.content.strip()
 
     if text.startswith("```json"):
         text = text.replace("```json", "", 1)

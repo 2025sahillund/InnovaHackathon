@@ -4,7 +4,14 @@ from ai.gemini_client import ask_gemini
 from ai.prompt_manager import load_prompt, fill_prompt
 
 
-def generate_interview_questions(role, experience, difficulty, questions):
+def generate_interview_questions(
+    role,
+    company,
+    experience,
+    difficulty,
+    interview_type,
+    question_count
+):
 
     prompt = load_prompt("interview_prompt.txt")
 
@@ -12,9 +19,11 @@ def generate_interview_questions(role, experience, difficulty, questions):
         prompt,
         {
             "role": role,
+            "company": company,
             "experience": experience,
             "difficulty": difficulty,
-            "questions": questions
+            "type": interview_type,
+            "questions": question_count,
         }
     )
 

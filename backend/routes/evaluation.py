@@ -2,6 +2,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 
 from ai.evaluator import evaluate_answer
+from ai.adaptive_engine import get_next_difficulty
 
 router = APIRouter(
     prefix="/evaluation",
@@ -23,7 +24,12 @@ def evaluate(req: EvaluationRequest):
         req.answer
     )
 
+    adaptive_result = get_next_difficulty(result["score"])
     return {
         "success": True,
-        "data": result
+        "data": {
+            **result,
+            **adaptive_result
+        }
+    
     }

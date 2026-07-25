@@ -1,22 +1,75 @@
 import json
 
 from ai.gemini_client import ask_gemini
-from ai.prompt_manager import load_prompt, fill_prompt
 
 
-def generate_roadmap(goal, skills, experience, duration_weeks):
+def generate_learning_roadmap(
+    role,
+    experience,
+    company,
+    skills
+):
 
-    prompt = load_prompt("roadmap_prompt.txt")
+    prompt = f"""
+You are an expert Software Engineering Mentor.
 
-    prompt = fill_prompt(
-        prompt,
-        {
-            "goal": goal,
-            "skills": skills,
-            "experience": experience,
-             "duration_weeks": duration_weeks
-        }
-    )
+Create a personalized roadmap.
+
+Role:
+{role}
+
+Experience:
+{experience}
+
+Target Company:
+{company}
+
+Current Skills:
+{", ".join(skills)}
+
+Return ONLY valid JSON.
+
+{{
+  "title":"Python Developer Roadmap",
+
+  "estimated_duration":"4 Months",
+
+  "phases":[
+
+    {{
+      "phase":"Phase 1",
+
+      "duration":"2 Weeks",
+
+      "topics":[
+        "",
+        "",
+        ""
+      ]
+    }}
+
+  ],
+
+  "projects":[
+    "",
+    "",
+    ""
+  ],
+
+  "resources":[
+    "",
+    "",
+    ""
+  ],
+
+  "tips":[
+    "",
+    "",
+    ""
+  ]
+}}
+
+"""
 
     response = ask_gemini(prompt)
 

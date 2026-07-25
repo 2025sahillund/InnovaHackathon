@@ -1,35 +1,33 @@
-from typing import List
-
 from fastapi import APIRouter
 from pydantic import BaseModel
 
-from ai.roadmap_generator import generate_roadmap
+from ai.roadmap_generator import generate_learning_roadmap
 
 router = APIRouter(
-    prefix="/roadmap",
-    tags=["Roadmap Generator"]
+    prefix="/api/roadmap",
+    tags=["Roadmap"]
 )
 
 
 class RoadmapRequest(BaseModel):
 
-    goal: str
-    skills: List[str]
+    role: str
     experience: str
-    duration_weeks: int
+    company: str
+    skills: list
 
 
 @router.post("/generate")
 def roadmap(req: RoadmapRequest):
 
-    result = generate_roadmap(
-        req.goal,
-        ", ".join(req.skills),
+    result = generate_learning_roadmap(
+        req.role,
         req.experience,
-        req.duration_weeks
+        req.company,
+        req.skills,
     )
 
     return {
         "success": True,
-        "data": result
+        "data": result,
     }

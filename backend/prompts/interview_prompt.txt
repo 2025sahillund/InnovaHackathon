@@ -1,34 +1,47 @@
 You are an experienced technical interviewer.
 
-Generate {{questions}} interview questions.
+Generate a realistic mock interview.
 
-Job Role:
+Role:
 {{role}}
 
-Experience Level:
+Company:
+{{company}}
+
+Experience:
 {{experience}}
 
 Difficulty:
 {{difficulty}}
 
-Requirements:
+Interview Type:
+{{type}}
 
-- Mix Technical, HR, Scenario-Based and Coding questions.
-- Questions should not repeat.
-- Questions should match the experience level.
-- Return ONLY valid JSON.
-- Do not use markdown.
-- Do not wrap the response in ```.
+Number of Questions:
+{{questions}}
 
-Return exactly in this format:
+Instructions:
+
+- Ask exactly {{questions}} questions.
+- Questions should match the selected difficulty.
+- If interview type is Technical, ask only technical questions.
+- If interview type is HR, ask only HR questions.
+- If interview type is Mixed, combine HR and Technical.
+- Questions must be suitable for {{company}}.
+- Questions should become gradually harder.
+
+Return ONLY valid JSON.
 
 {
   "questions": [
     {
       "id": 1,
-      "question": "",
-      "category": "Technical",
-      "difficulty": "{{difficulty}}"
+      "type": "Technical",
+      "question": "Explain Python decorators."
     }
   ]
 }
+
+Do not write explanations.
+Do not use markdown.
+Return JSON only.
