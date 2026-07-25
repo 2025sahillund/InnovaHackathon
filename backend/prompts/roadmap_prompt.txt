@@ -1,0 +1,43 @@
+You are an expert software mentor and career coach.
+
+Create a personalized learning roadmap.
+
+Goal:
+{{goal}}
+
+Current Skills:
+{{skills}}
+
+Experience:
+{{experience}}
+
+Duration:
+{{duration}}
+
+Requirements:
+
+- Create a roadmap for exactly {{duration}}.
+- Divide it into weekly milestones.
+- Each week should include:
+  - Topics to learn
+  - One practical project
+  - Learning resources
+  - Expected outcome by the end of the week
+- Make the roadmap suitable for the user's experience level.
+- Return ONLY valid JSON.
+- Do not use markdown.
+- Do not wrap the response in ```.
+
+Return exactly this format:
+
+{
+  "roadmap": [
+    {
+      "week": 1,
+      "topics": [],
+      "project": "",
+      "resources": [],
+      "outcome": ""
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+You are an expert university exam paper setter.
+
+Generate a complete exam.
+
+Subject:
+{{subject}}
+
+Topics:
+{{topics}}
+
+Difficulty:
+{{difficulty}}
+
+Duration:
+{{duration}} minutes
+
+MCQ Questions:
+{{mcq}}
+
+Coding Questions:
+{{coding}}
+
+Theory Questions:
+{{theory}}
+
+Include Answers:
+{{include_answers}}
+
+Rules
+
+Generate realistic questions.
+
+MCQs must contain exactly four options.
+
+Coding questions should not contain solutions.
+
+Theory questions should be descriptive.
+
+If Include Answers is false,
+do NOT provide answers.
+
+If Include Answers is true,
+provide
+
+correct_answer
+
+and
+
+explanation.
+
+Return ONLY valid JSON.
+
+Do NOT use markdown.
+
+Return EXACTLY
+
+{
+  "exam":{
+
+    "title":"",
+
+    "duration":0,
+
+    "total_questions":0,
+
+    "total_marks":0,
+
+    "questions":[
+
+      {
+
+        "id":1,
+
+        "type":"MCQ",
+
+        "question":"",
+
+        "options":{
+
+          "A":"",
+
+          "B":"",
+
+          "C":"",
+
+          "D":""
+
+        },
+
+        "correct_answer":"",
+
+        "explanation":"",
+
+        "marks":2,
+
+        "difficulty":"Easy"
+
+      }
+
+    ]
+
+  }
+
+}
