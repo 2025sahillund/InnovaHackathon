@@ -6,7 +6,7 @@ from routes.interview import router as interview_router
 from routes.evaluation import router as evaluation_router
 from routes.roadmap import router as roadmap_router
 from routes.recommendation import router as recommendation_router
-
+from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI(
     title="PrepPilot AI"
 )

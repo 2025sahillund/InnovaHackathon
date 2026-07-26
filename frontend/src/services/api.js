@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://127.0.0.1:8000",
+  baseURL: import.meta.env.VITE_API_URL,
   headers: {
     "Content-Type": "application/json",
   },
@@ -10,9 +10,7 @@ const api = axios.create({
 
 api.interceptors.request.use(
   (config) => {
-    console.log(
-      `➡ ${config.method?.toUpperCase()} ${config.url}`
-    );
+    console.log(`➡ ${config.method?.toUpperCase()} ${config.baseURL}${config.url}`);
     return config;
   },
   (error) => Promise.reject(error)
