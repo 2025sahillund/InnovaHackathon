@@ -36,7 +36,7 @@ const AssistantPage = () => {
 
             const aiMessage = {
                 sender: "assistant",
-                message: response.data.reply,
+                message: response.response,
             };
 
             setMessages((prev) => [...prev, aiMessage]);
