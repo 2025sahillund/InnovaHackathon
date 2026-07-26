@@ -16,7 +16,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://innova-frontend-9bg8.onrender.com/"
+        "https://innova-frontend-9bg8.onrender.com"
     ],
     allow_credentials=True,
     allow_methods=["*"],
