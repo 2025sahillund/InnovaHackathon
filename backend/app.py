@@ -11,6 +11,17 @@ app = FastAPI(
     title="PrepPilot AI"
 )
 
+# CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "https://innova-frontend-9bg8.onrender.com/"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 app.include_router(ai_router)
 app.include_router(exam_router)
 app.include_router(interview_router)
